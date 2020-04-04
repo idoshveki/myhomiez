@@ -268,6 +268,7 @@ export default function Homiez(props) {
       </Menu>
     </div>
   )
+
   return (
     <>
     <div className={classes.cover}>

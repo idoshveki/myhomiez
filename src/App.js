@@ -6,6 +6,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Link,
 } from "react-router-dom";
 
 const useStyles = () => ({
@@ -16,8 +17,8 @@ const useStyles = () => ({
 
 export default function App() {
   const classes = useStyles();
-  const ThemeContext = React.createContext({});
-  
+  const [showLinks, setShowLinks] = useState(true);
+
   const [currentData, setCurrentData] = useState({
       img: 'https://medias.timeout.co.il/www/uploads/2016/05/DSC3957_t-1140x641.jpg',
       title: 'מספרת ויטוריו',
@@ -26,23 +27,34 @@ export default function App() {
       url: 'https://www.facebook.com/vittorio.david',
   });
 
+  const links = (
+    <ul>
+      <li>
+        <Link to="/">Homiez</Link>
+      </li>
+    </ul>
+  );
+  const button1= (
+    <button onClick={() => setShowLinks(!showLinks)}>
+        show/hide links
+    </button>
+  );
   return (
     <>
-    <ThemeContext.Provider value="dark">
       <Router>
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/" component={() => (
               <div className={classes.root}>
                 <Homiez setShop={setCurrentData}/>
               </div>
-            </Route>
+            )}/>
             <Route 
               path="/barber" 
-              render={(props) => <BarberOne {...props} data={currentData} />}>
-            </Route>
+              render={(props) => <BarberOne {...props} data={currentData} />}/>
           </Switch>
+          {showLinks? links : null}
+          {button1}
       </Router>
-      </ThemeContext.Provider>
     </>
   );
 }
