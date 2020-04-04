@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import FilterListIcon from '@material-ui/icons/FilterList';
-
+import {Link} from "react-router-dom";
 
 const tags = {
   BEAUTY: 'beauty',
@@ -120,6 +120,7 @@ const tileData = [
     tag: tags.BEAUTY,
     tel: '0546336950',
     url: 'https://www.facebook.com/vittorio.david',
+    pagePath: '/barber'
   },
   {
     img: 'https://timeoutil-static.s3.eu-central-1.amazonaws.com/media/2017/03/sizes/שאפה_4_p_wo_500_367.jpg',
@@ -127,6 +128,7 @@ const tileData = [
     description: 'אין כמו יפו בלילות, אין כמו יפו בימים, אין כמו יפו במספרות.',
     tag: tags.BEAUTY,
     tel: '03-5181573',
+    discount: 15,
     url : 'https://www.facebook.com/%D7%A9%D7%90%D7%A4%D7%94-%D7%9E%D7%A1%D7%A4%D7%A8%D7%94-189925317820106/',
   },
   {
@@ -135,6 +137,7 @@ const tileData = [
     description: 'יש לשם שלו ניחוח בינלאומי, וכל מה שמזכיר לנו את חו"ל בא עם זרימה. בגיל 23 מרסייה פתח את המספרה הראשונה שלו ברחוב דיזינגוף ועם השנים הפך לשם דבר בישראל בתחום עיצוב השיער',
     tag: tags.BEAUTY,
     tel: '03-604-8135',
+    discount: 15,
     url: 'http://www.michelmercier.co.il/he/home/a/main/',
   },
   {
@@ -143,6 +146,7 @@ const tileData = [
     description: 'חובב מטפל כבר שנים במיטב מחלפותיהן של נשות ישראל אך שלל התספורות שרקח עבור נינט (בעידן טרום הקרחת) שירבבו את שמו גם אל מדורי הרכילות.',
     tag: tags.BEAUTY,
     tel: '03-522-5555',
+    discount: 15,
     url : 'https://www.facebook.com/%D7%9E%D7%A1%D7%A4%D7%A8%D7%AA-%D7%97%D7%95%D7%91%D7%91-Hovav-Hairdesign-123483217662970/',
   },
     {
@@ -150,18 +154,21 @@ const tileData = [
     title: 'מספרת רואי דניאל',
     description: 'איזור נווה צדק מוכר בזכות הבוטיקים הקטנים שמושכים אליהם כמו מגנט תיירות וגם מקומיות, אבל אם אתם כבר שם אפשר לקפוץ לריענון פריזורה אצל רואי דניאל. ',
     tag: tags.BEAUTY,
+    discount: 15,
   },
   {
     img: 'https://timeoutil-static.s3.eu-central-1.amazonaws.com/media/2014/10/sizes/miki-buganim-p_wo_500_333.jpg',
     title: 'מספרת מיקי בוגנים',
     description: 'האיש והבלונד. מעצב השיער שגלית גוטמן לא זזה בלעדיו ושאילנית לוי שומרת בחיוג המהיר. ',
     tag: tags.BEAUTY,
+    discount: 15,
   },
   {
     img: 'https://timeoutil-static.s3.eu-central-1.amazonaws.com/media/2017/03/sizes/מרמורק_17_P_wo_500_367.jpg',
     title: 'מספרת עושר ויגאל במרמורק',
     description: 'איכשהו יצא שרחוב מרמורק הפיצפון מפוצץ במספרות – יש את "סלון נינט" בפינה עם יהודה הלוי, יש את דודי השכן של הפיקוק ויש גם את המספרה של עושר שתביא לכם את האושר, כך לפי השמועה',
     tag: tags.BEAUTY,
+    discount: 15,
   },
 
   {
@@ -169,18 +176,21 @@ const tileData = [
     title: 'מספרת גזוז במסריק',
     description: 'הספר עוזי בטיש מתפעל את המספרה שלו במסריק כבר שני עשורים ומאחוריו רקורד של 30 שנה בתחום הספרות. ',
     tag: tags.BEAUTY,
+    discount: 25,
   },
   {
     img: 'https://medias.timeout.co.il/www/uploads/2016/04/030-1_p.jpg',
     title: 'מספרת הברבריה',
     description: 'בעידן שבו גברים מתעקשים להיראות כחוטבי עצים, מספרות זקנים הן שירות נצרך. צריך מישהו שיודע לגזום את שיח הפנים הזה ולעצב אותו כך שיזכיר יותר את המינגווי ופחות את גואל רצון.',
     tag: tags.BEAUTY,
+    discount: 25,
   },
   {
     img: 'https://timeoutil-static.s3.eu-central-1.amazonaws.com/media/2017/03/sizes/ברבר_8_p_wo_500_367.jpg',
     title: 'מספרת ברבר שופ',
     description: 'יש גברים צפונים בקהל? מצוין, כי גם לכם יש מקום בו תוכלו לבקש להתספר, להתגלח, ולבדוק שהתסרוקת החדשה מתאימה לעניבת הסקיני שלכם.',
     tag: tags.BEAUTY,
+    discount: 25,
   },
 
   {
@@ -188,29 +198,32 @@ const tileData = [
     title: 'סיטי מרקט',
     description: '  סופר שכונתי, אחד העם 29',
     tag: tags.GROCERY,
+    discount: 25,
   },
   {
     img: 'https://commondatastorage.googleapis.com/easy/images/UserPics/25982549_1562658805579.jpg',
     title: 'מספרת אייל',
     description: 'מספרה לעיצוב שיער ברמה גבוהה, תספורות ערב, תספורות לכלות, מספרה לגברים, נשים וילדים',
     tag: tags.BEAUTY,
+    discount: 25,
   },
   {
     img: 'https://www.super-market.co.il/images//uploaded/1508305172DSC00411.jpg',
     title: 'סופר נווה יהושע',
     description: ' סופר שכונתי, ארנון 29 תלא אביב',
     tag: tags.GROCERY,
+    discount: 45,
   },
   {
     img: 'https://d25t2285lxl5rf.cloudfront.net/images/shops/25606.jpg',
     title: 'גרציאני',
     description: 'בית קפה, יהודה הלוי 123',
     tag: tags.FOOD,
+    discount: 45,
   },
 ];
 
-
-export default function MediaCard() {
+export default function Homiez(props) {
   const classes = useStyles();
   const [filter, setFilter] = useState('');
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -231,11 +244,11 @@ export default function MediaCard() {
   const call = num => {
     window.location.href="tel://"+num;
   }
+
   const navigate = url => {
     window.location.href=url;
   }
 
-  console.log("in homiez", filter, tileData[0], tileData[0].tag == filter);
   const menu = (
     <div className={classes.menu}>
       <Button onClick={handleClick} variant="contained">
@@ -293,10 +306,13 @@ export default function MediaCard() {
               </CardActionArea>
               <CardActions className={classes.cardActions}>
                 <Button size="small" color="primary" onClick={() => call(tile.tel)}>
-                    Call
+                    התקשר
                 </Button>
                 <Button size="small" color="primary" onClick={() => navigate(tile.url)}>
-                    Visite Website
+                    בקר באתר
+                </Button>
+                <Button size="small" color="primary" onClick={() => props.setShop(tile)}>
+                    <Link to="/barber"> קנה קופון מוזל</Link>
                 </Button>
               </CardActions>
             </Card>))}
